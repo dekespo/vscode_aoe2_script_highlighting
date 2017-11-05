@@ -1,0 +1,26 @@
+{
+    "name": "AOE2_AI_Script_Syntax_Highlighting",
+    "displayName": "AOE2 AI Script Syntax Highlighting",
+    "description": "Syntax Colouring for AOE2 AI script files for .per, .per2.",
+    "version": "0.0.1",
+    "publisher": "dekespo",
+    "engines": {
+        "vscode": "^1.17.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "AOE2_per",
+            "aliases": ["AOE2_per", "AOE2_per"],
+            "extensions": [".per",".per2"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "AOE2_per",
+            "scopeName": "source.AOE2_per",
+            "path": "./syntaxes/AOE2_per.tmLanguage.json"
+        }]
+    }
+}

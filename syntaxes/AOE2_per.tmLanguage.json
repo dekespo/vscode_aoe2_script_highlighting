@@ -1,0 +1,129 @@
+{
+	"name": "AOE2_per",
+    "scopeName": "source.AOE2_per",
+	"fileTypes": ["per", "per2"],
+	"patterns": [
+		{"include": "#contents"}
+	],
+	"repository": {
+		"contents": {
+			"patterns": [
+				{"include": "#comments"},
+				{"include": "#constants"},
+				{"include": "#strings"},
+				{"include": "#keywords"},
+				{"include": "#directives"},
+				{"include": "#goals"},
+				{"include": "#timers"},
+				{"include": "#chats"},
+				{"include": "#disable"}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.character.AOE2_per",
+					"begin": ";",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.AOE2_per"
+						}
+					},
+					"end": "$"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name":"constant.language.AOE2_per",
+					"match": "\\b(true|or|and|not)\\b"
+				},
+				{
+					"name":"constant.language.AOE2_per",
+					"match": "\\b[A-Z][A-Z0-9_-]*\\b"
+				},
+				{
+					"name":"constant.numeric.AOE2_per",
+					"match": "\\b[0-9]+\\b"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.AOE2_per",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.AOE2_per",
+							"match": "\\\\."
+						}
+					]
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.struct.AOE2_per",
+					"match": "\\b(defrule|defconst)\\b"
+				}
+			]
+		},
+		"directives": {
+			"patterns": [
+				{
+					"name": "support.function.git-rebase.AOE2_per",
+					"begin": "#",
+					"beginCaptures": {
+						"0": {
+							"name": "support.function.git-rebase.AOE2_per"
+						}
+					},
+					"end": "$",
+					"patterns": [
+						{"include": "#constants"}
+					]
+				},
+				{
+					"name": "support.function.git-rebase.AOE2_per",
+					"match": "\\b(load)\\b"
+				}
+			]
+		},
+		"goals": {
+			"patterns": [
+				{
+					"name": "constant.regexp.AOE2_per",
+					"match": "\\b(goal|set-goal)\\b"
+				}
+			]
+		},
+		"timers": {
+			"patterns": [
+				{
+					"name": "constant.regexp.AOE2_per",
+					"match": "\\b(timer-triggered|enable-timer|disable-timer)\\b"
+				}
+			]
+		},
+		"chats": {
+			"patterns": [
+				{
+					"name": "meta.selector.AOE2_per",
+					"match": "\\b(chat-local-to-self|chat-to-all|up-chat-data-to-self|chat-to-allies|chat-to-player-using-id)\\b"
+				}
+			]
+		},
+		"disable": {
+			"patterns": [
+				{
+					"name": "invalid.AOE2_per",
+					"match": "\\b(disable-self)\\b"
+				}
+			]
+		}
+	}
+}
